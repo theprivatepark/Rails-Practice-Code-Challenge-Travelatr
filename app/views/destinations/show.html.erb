@@ -1,0 +1,22 @@
+<h2><%= @destination.name %></h2>
+
+<div>
+
+  <p> Name: <%= @destination.name %> </p>
+  <p> Country: <%= @destination.country %> </p>
+
+
+  Most Recent Post(s): 
+  <br>
+    <% @destination.five_recent_posts.each do |post| %>
+    <br>
+      <li> <%= post.title %> </li>
+      <% end %>
+
+<% if @destination.posts.count > 0 %>
+  <p> Featured Post: <%= link_to @destination.featured_post.title, post_path(@destination.featured_post) %> </p>
+  <p> Average Blogger Age: <%= @destination.average_age %> </p>
+<% end %>
+
+</div>
+
